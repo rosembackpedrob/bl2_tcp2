@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private PlayerInput.PlayerMovActions playerMov;
+    public PlayerInput.PlayerMovActions playerMov;
 
     [SerializeField] private PlayerMotor motor;
     [SerializeField] private PlayerLook look;
@@ -30,7 +30,7 @@ public class InputManager : MonoBehaviour
     // FixedUpdate is to physics
     void FixedUpdate()
     {
-        //tell the playermotor to move using the value from movement action.
+        //tell the playermotor to move using the input value from movement action.
         motor.ProcessMove(playerMov.Movement.ReadValue<Vector2>());
     }
 
